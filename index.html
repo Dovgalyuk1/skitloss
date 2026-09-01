@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKITLOSS — Taste The Loss</title>
+<meta name="description" content="The world's first digital candy for people who keep losing money. Feed a Skitloss. Stop the bleeding.">
+<link rel="icon" href="pill.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= PILL RAIN CANVAS ================= -->
+<canvas id="pillCanvas"></canvas>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="brand">
+    <img src="pill.webp" alt="" class="brand-pill">
+    <span>SKITLOSS</span>
+  </div>
+  <nav class="topnav">
+    <a href="#feeder">FEEDER</a>
+    <a href="#flavors">FLAVORS</a>
+    <a href="#facts">FACTS</a>
+    <a href="#buy">HOW TO BUY</a>
+  </nav>
+  <button id="soundBtn" class="sound-btn" aria-label="toggle sound">SOUND: OFF</button>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="rainbow-arc" aria-hidden="true">
+    <span style="--c:#ED1C24"></span>
+    <span style="--c:#F7941E"></span>
+    <span style="--c:#FFF200"></span>
+    <span style="--c:#00A651"></span>
+    <span style="--c:#00AEEF"></span>
+    <span style="--c:#92278F"></span>
+  </div>
+
+  <div class="hero-inner">
+    <p class="kicker">THE WORLD'S FIRST DIGITAL CANDY FOR PEOPLE WHO KEEP LOSING MONEY</p>
+    <h1 class="wordmark">
+      <span class="w-s">S</span>kitl<span class="w-o">o</span>ss
+    </h1>
+    <p class="tagline">YOU'RE NOT YOU WHEN YOU'RE DOWN BAD</p>
+
+    <img src="pack.webp" alt="Skitloss pack" class="hero-pack" id="heroPack">
+
+    <div class="ticker-row">
+      <div class="ticker-chip">$SKITLOSS</div>
+      <button class="ca-box" id="caBox" title="click to copy">
+        <span class="ca-label">CONTRACT</span>
+        <span class="ca-value" id="caValue">COMING SOON — MINT PENDING</span>
+        <span class="ca-copy" id="caCopy">COPY</span>
+      </button>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-buy" href="#buy">BUY $SKITLOSS</a>
+      <a class="btn btn-x" href="#" target="_blank" rel="noopener">X / TWITTER</a>
+      <a class="btn btn-chart" href="#" target="_blank" rel="noopener">CHART</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">▼ SCROLL TO BE CURED ▼</div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee marquee-1"><div class="marquee-track" id="mq1"></div></div>
+
+<!-- ================= FEEDER ================= -->
+<section id="feeder" class="section feeder-section">
+  <div class="section-head">
+    <h2 class="big-title">THE <span class="hl">FEEDER</span></h2>
+    <p class="sub">Somebody in your life is losing money right now. Feed them a Skitloss.</p>
+  </div>
+
+  <div class="feeder-grid">
+    <!-- MACHINE -->
+    <div class="machine">
+      <div class="machine-top">
+        <div class="machine-lights"><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="machine-title">SKITLOSS DISPENSER v1.0</span>
+      </div>
+
+      <div class="machine-screen" id="machineScreen">
+        <div class="screen-idle" id="screenIdle">
+          <img src="pill.webp" class="screen-pill" alt="">
+          <p>INSERT PATIENT</p>
+        </div>
+        <div class="screen-result" id="screenResult" hidden></div>
+      </div>
+
+      <div class="machine-controls">
+        <input id="patientInput" type="text" maxlength="42" placeholder="wallet, ticker, or your friend's name" autocomplete="off">
+        <button id="dispenseBtn" class="dispense-btn">FEED A SKITLOSS</button>
+      </div>
+
+      <div class="machine-slot">
+        <div class="slot-mouth"></div>
+        <span class="slot-label">DOSE DELIVERED HERE</span>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="feeder-side">
+      <div class="stat-card">
+        <span class="stat-num" id="curedCount">0</span>
+        <span class="stat-label">DOSES DISPENSED</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" id="lossCount">$0</span>
+        <span class="stat-label">LOSSES TREATED</span>
+      </div>
+      <div class="note-card">
+        <h3>DIRECTIONS FOR USE</h3>
+        <ol>
+          <li>Identify a person who is down bad.</li>
+          <li>Type them into the machine.</li>
+          <li>Press the big button.</li>
+          <li>They receive one (1) rainbow.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FLAVORS ================= -->
+<section id="flavors" class="section flavors-section">
+  <div class="section-head">
+    <h2 class="big-title">FIVE <span class="hl">FLAVORS</span> OF LOSS</h2>
+    <p class="sub">Every bag is a balanced diet of everything that has ever gone wrong.</p>
+  </div>
+
+  <div class="flavor-grid" id="flavorGrid"></div>
+</section>
+
+<!-- ================= MARQUEE 2 ================= -->
+<div class="marquee marquee-2"><div class="marquee-track" id="mq2"></div></div>
+
+<!-- ================= NUTRITION FACTS ================= -->
+<section id="facts" class="section facts-section">
+  <div class="facts-wrap">
+    <div class="facts-panel">
+      <h2 class="facts-title">NUTRITION FACTS</h2>
+      <div class="facts-line thick"></div>
+      <p class="facts-serving">Serving size <b>1 PILL (20 g)</b><br>Servings per bag <b>∞</b></p>
+      <div class="facts-line thick"></div>
+      <div class="facts-row big"><span>PNL per serving</span><b>−650</b></div>
+      <div class="facts-line"></div>
+      <div class="facts-row big"><span>PNL per bag</span><b>−154,000</b></div>
+      <div class="facts-line thick"></div>
+      <div class="facts-row"><span>Copium</span><b>92%</b></div>
+      <div class="facts-row"><span>Hopium</span><b>140%</b></div>
+      <div class="facts-row"><span>Conviction</span><b>0%</b></div>
+      <div class="facts-row"><span>Rainbow (artificial)</span><b>100%</b></div>
+      <div class="facts-row"><span>Exit liquidity</span><b>you</b></div>
+      <div class="facts-line thick"></div>
+      <p class="facts-foot">Percent daily values based on a portfolio that is already down. Contains rainbow. May contain traces of regret, leverage and one very confident group chat.</p>
+    </div>
+
+    <div class="facts-side">
+      <h2 class="big-title left">THE <span class="hl">TREATMENT</span></h2>
+      <div class="step"><span class="step-n">01</span><div><h4>YOU LOSE MONEY</h4><p>Standard. Happens on a Tuesday. Happens on a Sunday. Happens while you sleep.</p></div></div>
+      <div class="step"><span class="step-n">02</span><div><h4>YOU TAKE A SKITLOSS</h4><p>One pill. Green and white. Tastes like the colour purple and a margin call.</p></div></div>
+      <div class="step"><span class="step-n">03</span><div><h4>THE RAINBOW ENTERS</h4><p>Within 4 seconds the loss is no longer red. It is six colours. Scientifically easier to look at.</p></div></div>
+      <div class="step"><span class="step-n">04</span><div><h4>YOU ARE YOU AGAIN</h4><p>The chart did not move. You did.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOSS LOG ================= -->
+<section class="section log-section">
+  <div class="section-head">
+    <h2 class="big-title">LIVE <span class="hl">WARD</span></h2>
+    <p class="sub">Patients currently under rainbow.</p>
+  </div>
+  <div class="log-box" id="logBox"></div>
+</section>
+
+<!-- ================= HOW TO BUY ================= -->
+<section id="buy" class="section buy-section">
+  <div class="section-head">
+    <h2 class="big-title">HOW TO GET <span class="hl">DOSED</span></h2>
+  </div>
+  <div class="buy-grid">
+    <div class="buy-card"><span class="buy-n">1</span><h4>GET A WALLET</h4><p>Phantom or any Solana wallet. Free. Takes a minute.</p></div>
+    <div class="buy-card"><span class="buy-n">2</span><h4>FUND IT</h4><p>Send SOL. The amount you were going to lose anyway.</p></div>
+    <div class="buy-card"><span class="buy-n">3</span><h4>SWAP FOR $SKITLOSS</h4><p>Paste the contract above. Confirm. Do not think about it.</p></div>
+    <div class="buy-card"><span class="buy-n">4</span><h4>TASTE THE LOSS</h4><p>Congratulations. You are now medicated.</p></div>
+  </div>
+
+  <div class="live-stats" id="liveStats">
+    <div class="live-item"><span class="live-label">PRICE</span><b id="statPrice">—</b></div>
+    <div class="live-item"><span class="live-label">MARKET CAP</span><b id="statMcap">—</b></div>
+    <div class="live-item"><span class="live-label">24H</span><b id="statChange">—</b></div>
+    <div class="live-item"><span class="live-label">HOLDERS DOSED</span><b id="statHolders">—</b></div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <img src="pack.webp" alt="Skitloss" class="footer-pack">
+  <h2 class="footer-word">TASTE THE LOSS</h2>
+  <div class="footer-links">
+    <a href="#" target="_blank" rel="noopener">X</a>
+    <a href="#" target="_blank" rel="noopener">TELEGRAM</a>
+    <a href="#" target="_blank" rel="noopener">DEXSCREENER</a>
+  </div>
+  <p class="footer-fine">SKITLOSS® — $SKITLOSS. Not affiliated with any confectionery company, and they would prefer it stayed that way.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
